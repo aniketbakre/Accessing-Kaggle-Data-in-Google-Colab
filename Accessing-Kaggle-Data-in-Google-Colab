@@ -1,0 +1,31 @@
+# Accessing Kaggle Data in Google Colab for Brain Tumor MRI Classification
+
+# Install Kaggle package
+!pip install -q kaggle
+
+# Import necessary library to upload files in Colab
+from google.colab import files
+
+# Upload Kaggle API key (You can download "API kay file" on kaggle in settings > API > click on "Expire Token" if it is activated and "Create New Token" and upload to below)
+files.upload()
+
+# Create directory for Kaggle API key
+!mkdir ~/.kaggle
+
+# Move uploaded Kaggle API key to the appropriate directory
+!cp kaggle.json ~/.kaggle/
+
+# Set appropriate permissions for the Kaggle API key
+!chmod 600 ~/.kaggle/kaggle.json
+
+# Download the dataset from Kaggle
+# You can download the dataset by using "Copy API Command" in related dataset by clicking three dots.
+!kaggle datasets download -d masoudnickparvar/brain-tumor-mri-dataset
+
+# Unzip the downloaded dataset
+!unzip brain-tumor-mri-dataset.zip
+
+# After that you can refresh the directory and copy the path of required folder from directory.
+# Keep in mind each restart you need to upload jason file (API Key File).
+# To avoide that you can upload it to drive and give the path. but it riskey for imp operations.
+
